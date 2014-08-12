@@ -69,6 +69,7 @@
     <Content Include="css\timer.css" />
     <Content Include="index.html" />
     <Content Include="js\app\helpers.js" />
+    <Content Include="js\app\navigate.js" />
     <Content Include="js\app\timer.js" />
     <Content Include="js\builder.js" />
     <Content Include="Web.config" />
