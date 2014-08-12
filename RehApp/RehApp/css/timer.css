@@ -1,0 +1,140 @@
+﻿/* @override http://intervaltimer.local/css/timer.css */
+
+div.seconds-timer, div.seconds-share-options {
+	width: 620px;
+	height: 430px;
+	background: #17191f url(../images/timer-bg.png) repeat-x;
+	overflow: hidden;
+	position: relative;
+}
+
+div.seconds-timer > h4, div.seconds-share-options > h4 {
+	margin: 6px auto -2px;
+	width: 440px;
+	text-align: center;
+	color: white;
+	text-shadow: black 0 2px 0;
+	font: normal normal 30px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	padding: 0 0px 0px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+div.seconds-timer p.seconds-interval-next {
+	width: 440px;
+	height: 24px;
+	padding: 0px;
+	margin: 0 auto;
+	text-align: center;
+	color: #fffeff;
+	text-shadow: black 0 2px 0;
+	font: normal normal 18px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+div.seconds-timer p.seconds-interval-remaining {
+	padding: 0 10px 0px;
+	margin: -28px 0px -23px;
+	background-color: transparent;
+	text-align: center;
+	color: white;
+	text-shadow: black 0 2px 0;
+	font: normal normal 240px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	position: absolute;
+	top: 60px;
+}
+
+div.seconds-timer ul.seconds-dashboard {
+	background-color: transparent;
+	width: 620px;
+	padding: 0px;
+	margin: 0px;
+	font-size: 0px;
+	position: absolute;
+	top: 292px;
+}
+
+div.seconds-timer ul.seconds-dashboard li {
+	background-color: transparent;
+	display: inline-block;
+	width: 166px;
+	margin: 0px;
+	color: white;
+	text-shadow: black 0 2px 0;
+	font: normal normal 36px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	padding: 0 20px 6px;
+}
+
+div.seconds-timer ul.seconds-dashboard li h4 {
+	padding: 0px;
+	margin: 0px;
+	height: 18px;
+	background-color: transparent;
+	color: #afb4e7;
+	font-weight: normal;
+	font-style: normal;
+	font-size: 16px;
+}
+
+div.seconds-timer ul.seconds-dashboard li.seconds-total-elapsed {
+	text-align: left;
+}
+
+div.seconds-timer ul.seconds-dashboard li.seconds-interval-count {
+	text-align: center;
+	white-space: nowrap;
+}
+
+div.seconds-timer ul.seconds-dashboard li.seconds-total-remaining {
+	text-align: right;
+}
+
+div.seconds-timer ul.seconds-controls {
+	background-color: transparent;
+	padding: 0px;
+	margin: 0px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+div.seconds-timer div.seconds-controls div {
+	position: absolute;
+	font: 20px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	color: #fff;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	padding: 10px;
+	text-shadow: #000 0 2px 0;
+	cursor: pointer;
+}
+
+div.seconds-timer div.seconds-controls div.seconds-prev {
+	top: 15px;
+	left: 15px;
+}
+
+div.seconds-timer div.seconds-controls div.seconds-next {
+	top: 15px;
+	right: 15px;
+}
+
+div.seconds-timer div.seconds-controls div.seconds-start-stop {
+	width: 70px;
+	text-align: center;
+	bottom: 15px;
+	right: 15px;
+}
+
+div.seconds-timer div.seconds-controls div.seconds-reset {
+	width: 70px;
+	text-align: center;
+	bottom: 15px;
+	left: 15px;
+}

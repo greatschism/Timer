@@ -1,0 +1,171 @@
+﻿
+
+
+#timer, #content, #sidebar {
+	margin-bottom: 20px;
+}
+
+#builder-container {
+	/*height: 430px;*/
+}
+
+#builder {
+	/*height: 353px;*/
+    width: 620px;
+	padding: 10px;
+	overflow: auto;
+}
+
+input[type=text], select {
+	display: block;
+	font-size: 18px;
+	width: 100%;
+}
+
+.form-field {
+	padding: 10px;
+	background-color: #ddd;
+	margin-bottom: 10px;
+}
+
+.interval-name {
+	float: left;
+	margin-right: 10px;
+}
+
+.interval-name input {
+	width: 170px;
+}
+
+.interval-duration input {
+	width: 60px;
+}
+
+.statement {
+	font-size: 23px;
+	text-align: center;
+	background-color: #f0efeb;
+	padding: 10px 0;
+	margin-bottom: 20px;
+}
+
+.statement p, .timer-type p {
+	margin-bottom: 0px;
+}
+
+.timer-type h3, .timer-type p {
+	margin: 10px;
+}
+
+#iphone, #android {
+	height: 445px;
+	background-image: url(../images/promo-bg.png);
+	margin-bottom: 20px;
+	position: relative;
+}
+
+#iphone .desc {
+	position: absolute;
+	left: 540px;
+	top: 50px;
+	color: white;
+	font-size: 17px;
+	text-shadow: black 0 2px 0;
+	padding-right: 60px;
+}
+
+#iphone .desc h2 {
+	font-weight: normal;
+	font-size: 80px;
+}
+
+#iphone .desc .small-print {
+	font-size: 11px;
+}
+
+#upsell {
+	background-color: #faff6f;
+	margin-bottom: 20px;
+	border: 1px solid #8f9500;
+	text-align: center;
+	font-size: 18px;
+}
+
+#upsell p {
+	margin: 10px;
+}
+
+.video {
+	margin-bottom: 15px;
+}
+
+img {
+	margin-bottom: 20px;
+}
+
+.features {
+	margin-bottom: 20px;
+}
+
+.testimonial {
+	margin-bottom: 20px;
+}
+.testimonial p {
+	padding: 10px;
+	margin: 0px;
+}
+.author {
+	font-weight: bold;
+}
+
+#builder {
+	border: 1px solid #c0c0c0;
+}
+
+#builder h4, #builder h3 {
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+#builder-controls {
+    width: 620px;
+	background-color: #c0c0c0;
+	padding: 10px 5px;
+}
+
+input[type=button] {
+	background-color: #d5d5d5;
+	font-size: 18px;
+	margin: 0 5px;
+	width: 130px;
+	height: 35px;
+	border-radius: 8px;
+	border: 1px solid #919191;
+}
+
+table input.name {
+	width: 170px;
+	margin-right: 10px;
+}
+
+table {
+	margin: 0px;
+}
+
+.timer-details {
+	padding: 10px;
+}
+
+.timer-details textarea {
+	width: 280px;
+	height: 60px;
+}
+
+.blocker {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100px;
+	height: 100px;
+	background-color: #000;
+}
