@@ -1,8 +1,6 @@
-﻿
-
-
-#timer, #content, #sidebar {
+﻿#timer, #content, #sidebar {
 	margin-bottom: 20px;
+    display: none;  
 }
 
 #builder-container {
@@ -11,7 +9,7 @@
 
 #builder {
 	/*height: 353px;*/
-    width: 620px;
+    width: 320px;
 	padding: 10px;
 	overflow: auto;
 }
@@ -24,8 +22,8 @@ input[type=text], select {
 
 .form-field {
 	padding: 10px;
-	background-color: #ddd;
 	margin-bottom: 10px;
+    border-bottom: 1px solid #6495ed;
 }
 
 .interval-name {
@@ -119,28 +117,33 @@ img {
 }
 
 #builder {
-	border: 1px solid #c0c0c0;
 }
 
-#builder h4, #builder h3 {
+#builder h4, #builder h3 {  
 	margin-top: 20px;
 	margin-bottom: 10px;
 }
 
 #builder-controls {
     width: 620px;
-	background-color: #c0c0c0;
-	padding: 10px 5px;
+	background-color: #fff;
+	padding: 10px;
 }
 
 input[type=button] {
-	background-color: #d5d5d5;
+    color: #fff;
+	background-color: #6495ED;
 	font-size: 18px;
 	margin: 0 5px;
 	width: 130px;
 	height: 35px;
-	border-radius: 8px;
-	border: 1px solid #919191;
+	border: 1px solid #fff;
+}
+input[type=number] {
+	font-size: 18px;
+	margin: 0 5px;
+	width: 50px;
+	border: none;
 }
 
 table input.name {

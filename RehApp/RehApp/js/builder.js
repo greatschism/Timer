@@ -13,6 +13,7 @@ $(document).ready(function () {
     var $nextInterval = $timer.find('.seconds-interval-next');
 
     var $startStopButton = $timer.find('.seconds-start-stop');
+    var $backButton = $timer.find('.seconds-back');
     var $resetButton = $timer.find('.seconds-reset');
     var $nextButton = $timer.find('.seconds-next');
     var $prevButton = $timer.find('.seconds-prev');
@@ -73,7 +74,14 @@ $(document).ready(function () {
         timer.reset();
         $startStopButton.text('start');
     });
+    $backButton.click(function (event) {
+        document.getElementById('builder').style.display = 'block';
+        document.getElementById('builder-controls').style.display = 'block';
+        document.getElementById('timer').style.display = 'none';
+        timer.reset();
+        $startStopButton.text('start');
 
+    });
     timer.reset();
 
 
@@ -164,7 +172,7 @@ $(document).ready(function () {
             var $interval = createInterval('interval', $intervals.children().length, 'Interval ' + $intervals.children().length);
             $(this).before($interval);
             $interval.find('.overview a').click();
-            $interval.find('.name').select();
+          //  $interval.find('.name').select();
         });
         $addButton.click();
     }
@@ -181,9 +189,9 @@ $(document).ready(function () {
     }
 
     function createRoundBuilderFormTemplate() {
-        $roundBuilderFormTemplate.append($('<h4>Rounds</h4>'));
+        //$roundBuilderFormTemplate.append($('<h4>Rounds</h4>'));
         $roundBuilderFormTemplate.append(createInterval('rounds', 'Rounds', 'Rounds'));
-        $roundBuilderFormTemplate.append($('<h4>Breaks</h4>'));
+        //$roundBuilderFormTemplate.append($('<h4>Breaks</h4>'));
         $roundBuilderFormTemplate.append(createInterval('breaks', 'Breaks', 'Breaks'));
     }
 
@@ -217,9 +225,9 @@ $(document).ready(function () {
 
         var $name = $builderForm.find('.name').first();
         data.name = $name.val();
-        if (data.name == '') {
-            errors.push({ element: $name, message: 'Please name your timer' });
-        }
+        //if (data.name == '') {
+        //    errors.push({ element: $name, message: 'Please name your timer' });
+        //}
 
         data.type = $builderForm.find('.type').int();
         data.soundScheme = 1; //$builderForm.find('.sound-scheme').int();
@@ -252,9 +260,9 @@ $(document).ready(function () {
                 duration: $(this).find('.duration').int(),
                 color: 0 //$(this).find('.color').int() || 0
             };
-            if (data.intervals[index].name == '') {
-                errors.push({ element: $(this).find('.name'), message: 'Please name this exercise' });
-            }
+            //if (data.intervals[index].name == '') {
+            //    errors.push({ element: $(this).find('.name'), message: 'Please name this exercise' });
+            //}
             if (isNaN(data.intervals[index].duration) == true) {
                 errors.push({ element: $(this).find('.duration'), message: 'Seconds must be greater than zero' });
             }
@@ -278,9 +286,9 @@ $(document).ready(function () {
             duration: $builderForm.find('.warmup .duration').int(),
             color: 0 //$builderForm.find('.warmup .color').int() || 0
         };
-        if (data.warmup.name == '') {
-            errors.push({ element: $builderForm.find('.warmup .name'), message: 'Please name this interval type' });
-        }
+        //if (data.warmup.name == '') {
+        //    errors.push({ element: $builderForm.find('.warmup .name'), message: 'Please name this interval type' });
+        //}
         if (isNaN(data.warmup.duration) == true) {
             errors.push({ element: $builderForm.find('.warmup .duration'), message: 'This must be zero or greater' });
         }
@@ -293,9 +301,9 @@ $(document).ready(function () {
             duration: $builderForm.find('.high-intensity .duration').int(),
             color: 0 //$builderForm.find('.high-intensity .color').int() || 0
         };
-        if (data.highIntensity.name == '') {
-            errors.push({ element: $builderForm.find('.high-intensity .name'), message: 'Please name this interval type' });
-        }
+        //if (data.highIntensity.name == '') {
+        //    errors.push({ element: $builderForm.find('.high-intensity .name'), message: 'Please name this interval type' });
+        //}
         if (isNaN(data.highIntensity.duration) == true) {
             errors.push({ element: $builderForm.find('.high-intensity .duration'), message: 'This must be greater than zero' });
         }
@@ -308,9 +316,9 @@ $(document).ready(function () {
             duration: $builderForm.find('.low-intensity .duration').int(),
             color: 0 //$builderForm.find('.low-intensity .color').int() || 0
         };
-        if (data.lowIntensity.name == '') {
-            errors.push({ element: $builderForm.find('.low-intensity .name'), message: 'Please name this interval type' });
-        }
+        //if (data.lowIntensity.name == '') {
+        //    errors.push({ element: $builderForm.find('.low-intensity .name'), message: 'Please name this interval type' });
+        //}
         if (isNaN(data.lowIntensity.duration) == true) {
             errors.push({ element: $builderForm.find('.low-intensity .duration'), message: 'Seconds must be greater than zero' });
         }
@@ -323,9 +331,9 @@ $(document).ready(function () {
             duration: $builderForm.find('.cooldown .duration').int(),
             color: 0 //$builderForm.find('.cooldown .color').int() || 0
         };
-        if (data.cooldown.name == '') {
-            errors.push({ element: $builderForm.find('.cooldown .name'), message: 'Please name this interval type' });
-        }
+        //if (data.cooldown.name == '') {
+        //    errors.push({ element: $builderForm.find('.cooldown .name'), message: 'Please name this interval type' });
+        //}
         if (isNaN(data.cooldown.duration) == true) {
             errors.push({ element: $builderForm.find('.cooldown .duration'), message: 'Seconds must be zero or greater' });
         }
@@ -409,9 +417,9 @@ $(document).ready(function () {
                 duration: $(this).find('.duration').int(),
                 color: 0 //$(this).find('.color').int() || 0
             };
-            if (data.intervals[index].name == '') {
-                errors.push({ element: $(this).find('.name'), message: 'Please name this exercise' });
-            }
+            //if (data.intervals[index].name == '') {
+            //    errors.push({ element: $(this).find('.name'), message: 'Please name this exercise' });
+            //}
             if (isNaN(data.intervals[index].duration) == true) {
                 errors.push({ element: $(this).find('.duration'), message: 'Seconds must be greater than zero' });
             }
@@ -434,12 +442,7 @@ $(document).ready(function () {
         if (errors.length == 0) {
             $timerData.val(JSON.stringify(data));
             
-            //initiate new dev + call timer.js?
-            var def = { "name": "Timer changed by code", "type": data.type, "soundScheme": 2, "url": "", "urlTitle": "", "numberOfSets": data.numberOfSets, "rounds": { "name": "", "duration": data.rounds.duration, "color": 0 }, "breaks": { "name": "", "duration": data.breaks.duration, "color": 0 } };
-
-            timer.useDefinition(def);
-            timer.reset();
-            //$form.submit();
+            $form.submit();
         }
         else {
             for (var i = 0; i < errors.length; i++) {
@@ -460,6 +463,11 @@ $(document).ready(function () {
         if (errors.length == 0) {
             timer.useDefinition(data);
             timer.reset();
+            
+            document.getElementById('builder').style.display = 'none';
+            document.getElementById('builder-controls').style.display = 'none';
+            document.getElementById('timer').style.display = 'block';
+            
         }
         else {
             for (var i = 0; i < errors.length; i++) {
@@ -470,6 +478,8 @@ $(document).ready(function () {
             }
         }
     });
+
+   
 
     createTemplates();
 

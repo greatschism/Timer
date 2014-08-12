@@ -15,6 +15,9 @@
     <script src="/js/app/helpers.js" type="text/javascript"></script>
     <script src="/js/app/timer.js" type="text/javascript"></script>
     <script src="/js/builder.js" type="text/javascript"></script>
+    <script src="/js/app/navigate.js" type="text/javascript"></script>
+
+
     <script type="text/javascript">
         Runloop.def = { "name": "First Timer", "type": 2, "soundScheme": 2, "url": "", "urlTitle": "", "numberOfSets": 5, "rounds": { "name": "", "duration": 5, "color": 0 }, "breaks": { "name": "", "duration": 4, "color": 0 } };
     </script>
@@ -32,18 +35,20 @@
         </audio>
 
         <h4 class="seconds-interval-current">Warmup</h4>
-        <p class="seconds-interval-next">Next up: </p>
+        <!--<p class="seconds-interval-next">Next up: </p>-->
         <p class="seconds-interval-remaining">00:00</p>
-        <ul class="seconds-dashboard">
+        <!--<ul class="seconds-dashboard">
             <li class="seconds-total-elapsed"><h4>Elapsed</h4><span>00:00</span></li>
             <li class="seconds-interval-count"><h4>Interval</h4><span>0/0</span></li>
             <li class="seconds-total-remaining"><h4>Remaining</h4><span>00:00</span></li>
-        </ul>
+        </ul>-->
         <div class="seconds-controls">
+            <div class="seconds-back"><<</div>
             <div class="seconds-start-stop">start</div>
-            <div class="seconds-prev">prev</div>
-            <div class="seconds-next">next</div>
-            <div class="seconds-reset">reset</div>
+            <!--<div class="seconds-prev">prev</div>
+                <div class="seconds-next">next</div>
+                <div class="seconds-reset">reset</div>-->
+            
         </div>
     </div>
     <div id="builder-container" class="box grid_4 omega">
@@ -51,8 +56,8 @@
 
         </div>
         <div id="builder-controls">
-            <input type="button" id="preview-button" value="Preview" />
-            <input type="button" id="create-button" value="Submit" />
+            <input type="button" id="preview-button" value="Let's go" />
+            <!--<input type="button" id="create-button" value="Submit" />-->
             <form id="form" action="/builder" method="post" style="display: none">
                 <input id="timer-data" type="hidden" name="timer_json" />
             </form>
@@ -60,25 +65,19 @@
     </div>
 
     <div id="forms" style="display: none">
-
         <div class="interval form-field">
             <table>
                 <tr>
-                    <td class="table-name">Title:</td>
-                    <td class="table-duration">Seconds:</td>
-                </tr>
-                <tr>
-                    <td><input class="name" type="text" value="" /></td>
-                    <td><input class="duration" type="text" value="0" /></td>
+                    <!--<td><input class="name" type="text" value="default" /></td>-->
+                    <td class="name"></td>
+                    <td class="table-duration">duration:</td>
+                    <td><input class="duration" type="number" value="1" min="1"/></td>
                 </tr>
             </table>
         </div>
 
         <div class="timer">
-
-            <h2>Create Your Timer</h2>
-            <div class="form-field">
-                Type:
+            <div class="form-field">            
                 <select class="type">
                     <option value="0">Custom Timer</option>
                     <option value="1">HIIT Timer</option>
@@ -86,12 +85,10 @@
                     <option value="3">Circuit Timer</option>
                 </select>
             </div>
-            <div class="form-field">
+            <!--<div class="form-field">
                 Name:
                 <input class="name" type="text" value="Untitled" />
-            </div>
-
-
+            </div>-->
         </div>
 
         <div class="custom-timer">
@@ -104,21 +101,21 @@
         <div class="hiit-timer">
             <div class="form-field">
                 Number of sets:
-                <input class="sets" type="text" value="2" />
+                <input class="sets" type="number" value="2" min="1" />
             </div>
         </div>
 
         <div class="round-timer">
             <div class="form-field">
                 Number of rounds:
-                <input class="sets" type="text" value="2" />
+                <input class="sets" type="number" value="2" min="1"/>
             </div>
         </div>
 
         <div class="circuit-timer">
             <div class="form-field">
                 Number of circuits:
-                <input class="sets" type="text" value="1" />
+                <input class="sets" type="number" value="1" min="1" />
             </div>
             <div class="form-field">
                 <label><input class="loop" type="checkbox" value="1" checked="yes" />Loop Exercises</label>

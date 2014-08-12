@@ -1,19 +1,17 @@
 ﻿/* @override http://intervaltimer.local/css/timer.css */
 
 div.seconds-timer, div.seconds-share-options {
-	width: 620px;
-	height: 430px;
-	background: #17191f url(../images/timer-bg.png) repeat-x;
+	width: 320px;
+	height: 480px;
+	background-color: #17191f;
 	overflow: hidden;
 	position: relative;
 }
 
 div.seconds-timer > h4, div.seconds-share-options > h4 {
 	margin: 6px auto -2px;
-	width: 440px;
 	text-align: center;
 	color: white;
-	text-shadow: black 0 2px 0;
 	font: normal normal 30px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 	padding: 0 0px 0px;
 	overflow: hidden;
@@ -22,7 +20,6 @@ div.seconds-timer > h4, div.seconds-share-options > h4 {
 }
 
 div.seconds-timer p.seconds-interval-next {
-	width: 440px;
 	height: 24px;
 	padding: 0px;
 	margin: 0 auto;
@@ -41,10 +38,9 @@ div.seconds-timer p.seconds-interval-remaining {
 	background-color: transparent;
 	text-align: center;
 	color: white;
-	text-shadow: black 0 2px 0;
-	font: normal normal 240px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	font: normal normal 120px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 	position: absolute;
-	top: 60px;
+	top: 120px;
 }
 
 div.seconds-timer ul.seconds-dashboard {
@@ -105,13 +101,8 @@ div.seconds-timer div.seconds-controls div {
 	position: absolute;
 	font: 20px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 	color: #fff;
-	border-style: solid;
-	border-width: 1px;
-	border-radius: 8px;
-	-webkit-border-radius: 8px;
-	-moz-border-radius: 8px;
-	padding: 10px;
-	text-shadow: #000 0 2px 0;
+    background-color: #6495ED;
+	padding: 10px 0;
 	cursor: pointer;
 }
 
@@ -126,10 +117,10 @@ div.seconds-timer div.seconds-controls div.seconds-next {
 }
 
 div.seconds-timer div.seconds-controls div.seconds-start-stop {
-	width: 70px;
+	width: 80%;
 	text-align: center;
 	bottom: 15px;
-	right: 15px;
+	left: 10%;
 }
 
 div.seconds-timer div.seconds-controls div.seconds-reset {
@@ -137,4 +128,11 @@ div.seconds-timer div.seconds-controls div.seconds-reset {
 	text-align: center;
 	bottom: 15px;
 	left: 15px;
+}
+
+div.seconds-timer div.seconds-controls div.seconds-back {
+	width: 70px;
+	text-align: center;
+	top: 0;
+	background-color: transparent;
 }
