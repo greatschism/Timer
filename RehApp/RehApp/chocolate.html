@@ -1,81 +1,82 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <link rel="stylesheet" href="css/ext/chui-ios-3.6.3.css" />
-    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
-    <script src="js/ext/chui-3.6.3.js"></script>
-    <script type="text/javascript">
-        $(function () {
+    <head>
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <link rel="stylesheet" href="css/ext/chui-ios-3.6.3.css" />
+        <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+        <script src="js/ext/chui-3.6.3.js"></script>
+        <script type="text/javascript">
+            $(function () {
 
-            $('.segmented').UIPanelToggle(
-                '#toggle-panels',
-                function () {
-                    $.noop;
-                }
-            );
+                $('.segmented').UIPanelToggle(
+                    '#toggle-panels',
+                    function () {
+                        $.noop;
+                    }
+                );
 
-            $.UISlideout();
-            $.UISlideout.populate([{ header: 'Sections' }, { people: 'People' }, { tasks: 'Tasks' }, { header: 'Options' }, { settings: 'Settings' }]);
+                $.UISlideout();
+                $.UISlideout.populate([{ header: 'Sections' }, { people: 'People' }, { tasks: 'Tasks' }, { header: 'Options' }, { settings: 'Settings' }]);
 
-            $("#saveButton").bind("singletap", function () {
-                $.UIPopup({
-                    selector: "#home",
-                    id: "warning",
-                    title: 'Safety Check',
-                    message: 'Are you sure you want to save these details?',
-                    cancelButton: 'Cancel',
-                    continueButton: 'Confirm',
-                    callback: function () {
-                        $.UIPopup({ empty: true });
-                        $('.popup').UIBusy({ 'color': 'blue', 'size': '80px' })
-                        setTimeout(function () {
-                            $('.popup').UIPopupClose();
-                        }, 5000);
+                $("#saveButton").bind("singletap", function () {
+                    $.UIPopup({
+                        selector: "#home",
+                        id: "warning",
+                        title: 'Safety Check',
+                        message: 'Are you sure you want to save these details?',
+                        cancelButton: 'Cancel',
+                        continueButton: 'Confirm',
+                        callback: function () {
+                            $.UIPopup({ empty: true });
+                            $('.popup').UIBusy({ 'color': 'blue', 'size': '80px' })
+                            setTimeout(function () {
+                                $('.popup').UIPopupClose();
+                            }, 5000);
+                        }
+                    });
+                });
+
+                $('#freqRangeVal').html($('#frequencyRange').val());
+                $('#frequencyRange').on('input', function () {
+                    $('#freqRangeVal').html($(this).val());
+                });
+
+                $.get("data/people.json", function (data) {
+                    var peopleTemplate = '<li class="comp"><aside><img src="[[= person.pic ]]" class="chathead"></aside><div><h3>[[= person.firstName ]] [[= person.lastName ]]</h3><h4>[[= person.tel ]]</h4></div></li>',
+                        parsedTmp = $.template(peopleTemplate, 'person'),
+                        friendsList = $("#friendsList"),
+                        followersList = $("#followersList");
+
+                    data.friends.forEach(function (person) {
+                        friendsList.append(parsedTmp(person));
+                    });
+
+                    data.followers.forEach(function (person) {
+                        followersList.append(parsedTmp(person));
+                    });
+
+                });
+
+                $.UIDeletable({
+                    list: '#taskList',
+                    callback: function (item) {
+
                     }
                 });
             });
-
-            $('#freqRangeVal').html($('#frequencyRange').val());
-            $('#frequencyRange').on('input', function () {
-                $('#freqRangeVal').html($(this).val());
-            });
-
-            $.get("data/people.json", function (data) {
-                var peopleTemplate = '<li class="comp"><aside><img src="[[= person.pic ]]" class="chathead"></aside><div><h3>[[= person.firstName ]] [[= person.lastName ]]</h3><h4>[[= person.tel ]]</h4></div></li>',
-                    parsedTmp = $.template(peopleTemplate, 'person'),
-                    friendsList = $("#friendsList"),
-                    followersList = $("#followersList");
-
-                data.friends.forEach(function (person) {
-                    friendsList.append(parsedTmp(person));
-                });
-
-                data.followers.forEach(function (person) {
-                    followersList.append(parsedTmp(person));
-                });
-
-            });
-
-            $.UIDeletable({
-                list: '#taskList',
-                callback: function (item) {
-
-                }
-            });
-        });
-    </script>
-    <style>
-        .chathead {
-            width: 50px;
-            height: 50px;
-            border-radius: 50px;
-            border: 4px solid #FFFFFF;
-            box-shadow: 1px 1px 5px rgba(0,0,0,.5);
-        }
-    </style>
-</head>
+        </script>
+        <style>
+            .chathead {
+                width: 50px;
+                height: 50px;
+                border-radius: 50px;
+                border: 4px solid #FFFFFF;
+                box-shadow: 1px 1px 5px rgba(0,0,0,.5);
+            }
+        </style>
+    </head>
 <body>
 
     <nav class='current'>
