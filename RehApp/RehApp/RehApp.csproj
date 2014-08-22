@@ -68,6 +68,8 @@
     <Content Include="images\anonymous.gif" />
     <Content Include="images\me.png" />
     <Content Include="images\sbeeny.png" />
+    <Content Include="js\ext\chui-3.6.3.js" />
+    <Content Include="js\ext\chui-3.6.3.min.js" />
     <Content Include="packages.config" />
     <Content Include="data\people.json" />
     <None Include="Web.Debug.config">
@@ -84,8 +86,6 @@
     <Content Include="js\app\helpers.js" />
     <Content Include="js\app\timer.js" />
     <Content Include="js\builder.js" />
-    <Content Include="js\ext\chui-3.6.3.js" />
-    <Content Include="js\ext\chui-3.6.3.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
