@@ -57,6 +57,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="data\people.json" />
+    <None Include=".bin\git.cmd" />
+    <None Include=".bin\node.cmd" />
+    <Content Include="packages.config" />
+    <None Include=".bin\npm.cmd" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -65,12 +70,25 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="chocolate.html" />
     <Content Include="css\common.css" />
+    <Content Include="css\ext\chui-android-3.6.3.css" />
+    <Content Include="css\ext\chui-android-3.6.3.min.css" />
+    <Content Include="css\ext\chui-ios-3.6.3.css" />
+    <Content Include="css\ext\chui-ios-3.6.3.min.css" />
+    <Content Include="css\ext\chui-win-3.6.3.css" />
+    <Content Include="css\ext\chui-win-3.6.3.min.css" />
     <Content Include="css\timer.css" />
+    <Content Include="images\ahart.png" />
+    <Content Include="images\anonymous.gif" />
+    <Content Include="images\me.png" />
+    <Content Include="images\sbeeny.png" />
     <Content Include="index.html" />
     <Content Include="js\app\helpers.js" />
     <Content Include="js\app\timer.js" />
     <Content Include="js\builder.js" />
+    <Content Include="js\ext\chui-3.6.3.js" />
+    <Content Include="js\ext\chui-3.6.3.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
