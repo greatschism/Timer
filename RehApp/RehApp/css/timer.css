@@ -119,7 +119,7 @@ div.seconds-timer div.seconds-controls div.seconds-next {
 div.seconds-timer div.seconds-controls div.seconds-start-stop {
 	width: 80%;
 	text-align: center;
-	bottom: 15px;
+	top: 320px;
 	left: 10%;
     color: #FFF;
 }

@@ -4,8 +4,7 @@
 }
 
 #timer, #content, #sidebar {
-	margin-bottom: 20px;
-    display: none;  
+	display: none;  
 }
 
 #builder-container {
