@@ -1,6 +1,6 @@
 ﻿
 div.seconds-timer, div.seconds-share-options {
-	width: 320px;
+	width: 100%;
 	height: 480px;
 	background-color: #17191f;
 	overflow: hidden;
@@ -44,7 +44,7 @@ div.seconds-timer p.seconds-interval-remaining {
 
 div.seconds-timer ul.seconds-dashboard {
 	background-color: transparent;
-	width: 620px;
+	width: 100%;
 	padding: 0px;
 	margin: 0px;
 	font-size: 0px;
