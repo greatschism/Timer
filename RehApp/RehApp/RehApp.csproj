@@ -58,6 +58,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="chocolate.html" />
+    <Content Include="css\ext\chui-android-3.6.3.css" />
+    <Content Include="css\ext\chui-android-3.6.3.min.css" />
+    <Content Include="css\ext\chui-ios-3.6.3.css" />
+    <Content Include="css\ext\chui-ios-3.6.3.min.css" />
+    <Content Include="css\ext\chui-win-3.6.3.css" />
+    <Content Include="css\ext\chui-win-3.6.3.min.css" />
     <Content Include="packages.config" />
     <Content Include="data\people.json" />
     <None Include="Web.Debug.config">
@@ -69,12 +75,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\common.css" />
-    <Content Include="css\ext\chui-android-3.6.3.css" />
-    <Content Include="css\ext\chui-android-3.6.3.min.css" />
-    <Content Include="css\ext\chui-ios-3.6.3.css" />
-    <Content Include="css\ext\chui-ios-3.6.3.min.css" />
-    <Content Include="css\ext\chui-win-3.6.3.css" />
-    <Content Include="css\ext\chui-win-3.6.3.min.css" />
     <Content Include="css\timer.css" />
     <Content Include="images\ahart.png" />
     <Content Include="images\anonymous.gif" />
