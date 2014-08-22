@@ -1,0 +1,63 @@
+{
+	"friends": [
+		{
+			"firstName": "Steve",
+		 	"lastName": "Beeny",
+			"tel": "555-123-4567",
+			"pic": "images/sbeeny.png"
+		},
+		{
+			"firstName": "Mal",
+		 	"lastName": "Evans",
+			"tel": "555-678-9100",
+			"pic": "images/anonymous.gif"
+			
+		},
+		{
+			"firstName": "Amy",
+		 	"lastName": "Hart",
+			"tel": "555-967-1237",
+			"pic": "images/ahart.png"
+		},
+		{
+			"firstName": "Roger",
+		 	"lastName": "Mason",
+			"tel": "555-555-5555",
+			"pic": "images/anonymous.gif"
+		},
+		{
+			"firstName": "Tess",
+		 	"lastName": "Weekly",
+			"tel": "555-666-1234",
+			"pic": "images/anonymous.gif"
+		},
+		{
+			"firstName": "Sky",
+		 	"lastName": "Landwalker",
+			"tel": "555-987-6543",
+			"pic": "images/anonymous.gif"
+		}
+	],
+	"followers": [
+		{
+			"firstName": "John",
+		 	"lastName": "Lennon",
+			"pic": "images/anonymous.gif"
+		},
+		{
+			"firstName": "Paul",
+		 	"lastName": "McCartney",
+			"pic": "images/anonymous.gif"
+		},
+		{
+			"firstName": "George",
+		 	"lastName": "Harrison",
+			"pic": "images/anonymous.gif"
+		},
+		{
+			"firstName": "Ringo",
+		 	"lastName": "Starr",
+			"pic": "images/anonymous.gif"
+		}
+	]
+}
