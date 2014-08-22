@@ -57,10 +57,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <None Include=".bin\git.cmd" />
-    <None Include=".bin\node.cmd" />
+    <Content Include="chocolate.html" />
     <Content Include="packages.config" />
-    <None Include=".bin\npm.cmd" />
     <Content Include="data\people.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -70,7 +68,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="chocolate.html" />
     <Content Include="css\common.css" />
     <Content Include="css\ext\chui-android-3.6.3.css" />
     <Content Include="css\ext\chui-android-3.6.3.min.css" />

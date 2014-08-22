@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <link rel="stylesheet" href="css/ext/chui-ios-3.6.3.css" />
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="js/ext/chui-3.6.3.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            $('.segmented').UIPanelToggle(
+                '#toggle-panels',
+                function () {
+                    $.noop;
+                }
+            );
+
+            $.UISlideout();
+            $.UISlideout.populate([{ header: 'Sections' }, { people: 'People' }, { tasks: 'Tasks' }, { header: 'Options' }, { settings: 'Settings' }]);
+
+            $("#saveButton").bind("singletap", function () {
+                $.UIPopup({
+                    selector: "#home",
+                    id: "warning",
+                    title: 'Safety Check',
+                    message: 'Are you sure you want to save these details?',
+                    cancelButton: 'Cancel',
+                    continueButton: 'Confirm',
+                    callback: function () {
+                        $.UIPopup({ empty: true });
+                        $('.popup').UIBusy({ 'color': 'blue', 'size': '80px' })
+                        setTimeout(function () {
+                            $('.popup').UIPopupClose();
+                        }, 5000);
+                    }
+                });
+            });
+
+            $('#freqRangeVal').html($('#frequencyRange').val());
+            $('#frequencyRange').on('input', function () {
+                $('#freqRangeVal').html($(this).val());
+            });
+
+            $.get("data/people.json", function (data) {
+                var peopleTemplate = '<li class="comp"><aside><img src="[[= person.pic ]]" class="chathead"></aside><div><h3>[[= person.firstName ]] [[= person.lastName ]]</h3><h4>[[= person.tel ]]</h4></div></li>',
+                    parsedTmp = $.template(peopleTemplate, 'person'),
+                    friendsList = $("#friendsList"),
+                    followersList = $("#followersList");
+
+                data.friends.forEach(function (person) {
+                    friendsList.append(parsedTmp(person));
+                });
+
+                data.followers.forEach(function (person) {
+                    followersList.append(parsedTmp(person));
+                });
+
+            });
+
+            $.UIDeletable({
+                list: '#taskList',
+                callback: function (item) {
+
+                }
+            });
+        });
+    </script>
+    <style>
+        .chathead {
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            border: 4px solid #FFFFFF;
+            box-shadow: 1px 1px 5px rgba(0,0,0,.5);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class='current'>
+        <h1>Killer App</h1>
+    </nav>
+    <article id='people' class='current'>
+        <section>
+
+            <ul class='list'>
+                <li class='comp'>
+                    <aside>
+                        <img src="images/me.png" class="chathead" />
+                    </aside>
+                    <div>
+                        <h3>Me</h3>
+                        <h4>Tel: 555-597-7892</h4>
+                    </div>
+                </li>
+            </ul>
+
+            <div class='horizontal centered'>
+                <div class='segmented'>
+                    <a class='button followersBtn'>Followers</a>
+                    <a class='button friendsBtn'>Friends</a>
+                </div>
+            </div>
+            <div id="toggle-panels">
+                <div>
+                    <ul class='list' id="followersList"></ul>
+                </div>
+                <div>
+                    <ul class='list' id="friendsList"></ul>
+                </div>
+            </div>
+
+        </section>
+    </article>
+
+    <nav class='next'>
+        <h1>Tasks</h1>
+    </nav>
+    <article id="tasks" class='next'>
+        <section>
+            <h2>Tasks</h2>
+            <ul class="list" id="taskList">
+                <li>Weekly Shopping</li>
+                <li>Wash Car</li>
+                <li>Meet Friends</li>
+            </ul>
+        </section>
+    </article>
+
+    <nav class='next'>
+        <h1>Settings</h1>
+    </nav>
+    <article id="settings" class='next'>
+        <section>
+            <h2>Settings</h2>
+            <ul class="list" ui-implements="form">
+                <li>
+                    <input autocorrect="off" autocapitalize="words" type="text" id="first_name" placeholder="First Name" required="">
+                </li>
+                <li>
+                    <input autocorrect="off" autocapitalize="words" type="text" id="last_name" placeholder="Last Name" required="">
+                </li>
+                <li>
+                    <input autocorrect="off" autocapitalize="off" type="email" id="email_address" placeholder="Email Address" required="">
+                </li>
+                <li>
+                    <input autocorrect="off" autocapitalize="off" type="text" id="username" placeholder="User Name" required="">
+                </li>
+                <li class="comp">
+                    <div>
+                        <label for="frequencyRange">Frequency: <span id="freqRangeVal"></span></label>
+                    </div>
+                    <aside>
+                        <input type="range" id="frequencyRange" step='5' value="20" min="0" max="100">
+                    </aside>
+                </li>
+            </ul>
+            <ul class="list" ui-implements="form">
+                <li>
+                    <p>Do you agree to the terms and conditions?</p>
+                </li>
+                <li id="agreeToTermsCell" class="comp">
+                    <div>
+                        <label id="agreeToTermsLabel" for="agreeToTerms">I agree.</label>
+                    </div>
+                    <aside>
+                        <span class="switch" id="agreeToTerms" role="checkbox"><em></em><input type="checkbox"></span>
+                    </aside>
+                </li>
+            </ul>
+
+            <a class="button action" id="saveButton">Save</a>
+
+        </section>
+    </article>
+
+</body>
+</html>
