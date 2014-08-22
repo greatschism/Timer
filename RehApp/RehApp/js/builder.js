@@ -21,7 +21,7 @@ $(document).ready(function () {
     var $beepLong = $timer.find('.seconds-beep-long');
     var $beepShort = $timer.find('.seconds-beep-short');
 
-    var colors = ['rgb(23,25,31)', 'rgb(204,41,41)', 'rgb(204,120,41)', 'rgb(204,199,41)', 'rgb(133,204,41)', 'rgb(41,171,204)', 'rgb(41,106,204)', 'rgb(144,41,204)', 'rgb(204,41,141)', 'rgb(91,96,199)'];
+    var colors = ['rgb(255,255,255)', 'rgb(204,41,41)', 'rgb(204,120,41)', 'rgb(204,199,41)', 'rgb(133,204,41)', 'rgb(41,171,204)', 'rgb(41,106,204)', 'rgb(144,41,204)', 'rgb(204,41,141)', 'rgb(91,96,199)'];
 
     // Run app
     var timer = Runloop.createTimer();

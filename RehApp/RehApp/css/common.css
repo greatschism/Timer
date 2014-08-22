@@ -1,4 +1,9 @@
-﻿#timer, #content, #sidebar {
+﻿body {
+    margin: 0px;
+    background-color: #fff;
+}
+
+#timer, #content, #sidebar {
 	margin-bottom: 20px;
     display: none;  
 }
@@ -133,9 +138,11 @@ input[type=button] {
 	background-color: #6495ED;
 	font-size: 18px;
 	margin: 0 5px;
-	width: 130px;
 	height: 35px;
 	border: 1px solid #fff;
+    width: 80%;
+text-align: center;
+left: 10%;
 }
 input[type=number] {
 	font-size: 18px;

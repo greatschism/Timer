@@ -2,7 +2,7 @@
 div.seconds-timer, div.seconds-share-options {
 	width: 100%;
 	height: 480px;
-	background-color: #17191f;
+	background-color: #000;
 	overflow: hidden;
 	position: relative;
 }
@@ -10,7 +10,7 @@ div.seconds-timer, div.seconds-share-options {
 div.seconds-timer > h4, div.seconds-share-options > h4 {
 	margin: 6px auto -2px;
 	text-align: center;
-	color: white;
+	color: #000;
 	font: normal normal 30px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 	padding: 0 0px 0px;
 	overflow: hidden;
@@ -36,10 +36,12 @@ div.seconds-timer p.seconds-interval-remaining {
 	margin: -28px 0px -23px;
 	background-color: transparent;
 	text-align: center;
-	color: white;
+	color: #000000;
 	font: normal normal 120px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 	position: absolute;
 	top: 120px;
+    text-align: center;
+    width: 100%;
 }
 
 div.seconds-timer ul.seconds-dashboard {
@@ -99,7 +101,7 @@ div.seconds-timer ul.seconds-controls {
 div.seconds-timer div.seconds-controls div {
 	position: absolute;
 	font: 20px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
-	color: #fff;
+	color: #FFF;
     background-color: #6495ED;
 	padding: 10px 0;
 	cursor: pointer;
