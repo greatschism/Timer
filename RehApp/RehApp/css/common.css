@@ -58,7 +58,7 @@ input[type=text], select {
 	margin: 10px;
 }
 
-#iphone, #android {
+/*#iphone, #android {
 	height: 445px;
 	background-image: url(../images/promo-bg.png);
 	margin-bottom: 20px;
@@ -78,7 +78,7 @@ input[type=text], select {
 #iphone .desc h2 {
 	font-weight: normal;
 	font-size: 80px;
-}
+}*/
 
 #iphone .desc .small-print {
 	font-size: 11px;
@@ -128,21 +128,19 @@ img {
 }
 
 #builder-controls {
-    width: 100%;
-	background-color: #fff;
-	padding: 10px;
+  
 }
 
 input[type=button] {
     color: #fff;
-	background-color: #6495ED;
+	text-align: center;
+    background-color: #6495ED;
 	font-size: 18px;
-	margin: 0 5px;
-	height: 35px;
+    height: 44px;
 	border: 1px solid #fff;
     width: 80%;
-text-align: center;
-left: 10%;
+    position: relative;
+    left: 10%;
 }
 input[type=number] {
 	font-size: 18px;

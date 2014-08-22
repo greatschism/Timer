@@ -32,7 +32,6 @@ div.seconds-timer p.seconds-interval-next {
 }
 
 div.seconds-timer p.seconds-interval-remaining {
-	padding: 0 10px 0px;
 	margin: -28px 0px -23px;
 	background-color: transparent;
 	text-align: center;
@@ -101,7 +100,7 @@ div.seconds-timer ul.seconds-controls {
 div.seconds-timer div.seconds-controls div {
 	position: absolute;
 	font: 20px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
-	color: #FFF;
+	color: #000;
     background-color: #6495ED;
 	padding: 10px 0;
 	cursor: pointer;
@@ -122,6 +121,7 @@ div.seconds-timer div.seconds-controls div.seconds-start-stop {
 	text-align: center;
 	bottom: 15px;
 	left: 10%;
+    color: #FFF;
 }
 
 div.seconds-timer div.seconds-controls div.seconds-reset {
