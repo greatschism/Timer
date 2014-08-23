@@ -105,7 +105,7 @@ $(document).ready(function () {
         var $name = $interval.find('.name');
 
         $interval.addClass(className);
-        $interval.find('.duration').val(0);
+        $interval.find('.duration').val(30);
         $interval.find('.color').val(0);
 
         if (typeof name !== 'undefined') {
