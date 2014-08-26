@@ -16,124 +16,144 @@
     <script src="/js/app/timer.js" type="text/javascript"></script>
     <script src="/js/builder.js" type="text/javascript"></script>
     <script src="/js/app/navigate.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="css/ext/chui-android-3.6.3.css" />
+    <script src="js/ext/chui-3.6.3.js"></script>
 
 
     <script type="text/javascript">
         Runloop.def = { "name": "First Timer", "type": 2, "soundScheme": 2, "url": "", "urlTitle": "", "numberOfSets": 5, "rounds": { "name": "", "duration": 5, "color": 0 }, "breaks": { "name": "", "duration": 4, "color": 0 } };
     </script>
+    <script type="text/javascript">
+        $(function() {
 
+            $('#freqRangeVal').html($('#frequencyRange').val());
+            $('#frequencyRange').on('input', function() {
+                $('#freqRangeVal').html($(this).val());
+            });
+        });
+    </script>
 </head>
-<body>
-    <div id="timer" class="seconds-timer">
-        <audio preload="auto" class="seconds-beep-long">
-            <source type="audio/mp3" src="http://s3.amazonaws.com/widget.intervaltimer.com/1/sounds/beep-long.mp3"></source>
-            <source type="audio/ogg" src="http://s3.amazonaws.com/widget.intervaltimer.com/1/sounds/beep-long.ogg"></source>
-        </audio>
-        <audio preload="auto" class="seconds-beep-short">
-            <source type="audio/mp3" src="http://s3.amazonaws.com/widget.intervaltimer.com/1/sounds/beep-short.mp3"></source>
-            <source type="audio/ogg" src="http://s3.amazonaws.com/widget.intervaltimer.com/1/sounds/beep-short.ogg"></source>
-        </audio>
-
-        <h4 class="seconds-interval-current">Warmup</h4>
-        <!--<p class="seconds-interval-next">Next up: </p>-->
-        <p class="seconds-interval-remaining">00:00</p>
+    <body>
         
-        <!--<ul class="seconds-dashboard">
-            <li class="seconds-total-elapsed"><h4>Elapsed</h4><span>00:00</span></li>
-            <li class="seconds-interval-count"><h4>Interval</h4><span>0/0</span></li>
-            <li class="seconds-total-remaining"><h4>Remaining</h4><span>00:00</span></li>
-        </ul>-->
-        <div class="seconds-controls">
-            <div class="seconds-back"><<</div>
-            <div class="seconds-start-stop">start</div>
 
-            <!--<div class="seconds-prev">prev</div>
-                <div class="seconds-next">next</div>
-                <div class="seconds-reset">reset</div>-->
-            
-        </div>
-    </div>
-    <div id="builder-container" class="box grid_4 omega">
-        <div id="builder">
+        <nav class='current'>
+            <h1>Timer</h1>
+        </nav>
+        <article id="timerarticle">
+        <section>
+        <div id="timer" class="seconds-timer">
+            <audio preload="auto" class="seconds-beep-long">
+                <source type="audio/mp3" src="http://s3.amazonaws.com/widget.intervaltimer.com/1/sounds/beep-long.mp3"></source>
+                <source type="audio/ogg" src="http://s3.amazonaws.com/widget.intervaltimer.com/1/sounds/beep-long.ogg"></source>
+            </audio>
+            <audio preload="auto" class="seconds-beep-short">
+                <source type="audio/mp3" src="http://s3.amazonaws.com/widget.intervaltimer.com/1/sounds/beep-short.mp3"></source>
+                <source type="audio/ogg" src="http://s3.amazonaws.com/widget.intervaltimer.com/1/sounds/beep-short.ogg"></source>
+            </audio>
 
-        </div>
-        <div id="builder-controls">
-            
-            <input type="button" id="preview-button" value="Let's go" />
-            <!--<input type="button" id="create-button" value="Submit" />-->
-            <form id="form" action="/builder" method="post" style="display: none">
-                <input id="timer-data" type="hidden" name="timer_json" />
-            </form>
-        </div>
-    </div>
+            <h4 class="seconds-interval-current">Warmup</h4>
+            <!--<p class="seconds-interval-next">Next up: </p>-->
+            <p class="seconds-interval-remaining">00:00</p>
 
-    <div id="forms" style="display: none">
-        <div class="interval form-field">
-            <table>
-                <tr>
-                    <!--<td><input class="name" type="text" value="default" /></td>-->
-                    <td class="name"></td>
-                    <td class="table-duration">duration:</td>
-                    <td><input class="duration" type="number" value="1" min="1"/></td>
-                </tr>
-            </table>
-        </div>
+            <!--<ul class="seconds-dashboard">
+                    <li class="seconds-total-elapsed"><h4>Elapsed</h4><span>00:00</span></li>
+                    <li class="seconds-interval-count"><h4>Interval</h4><span>0/0</span></li>
+                    <li class="seconds-total-remaining"><h4>Remaining</h4><span>00:00</span></li>
+                </ul>-->
+            <div class="seconds-controls">
+                <div class="seconds-back"><<</div>
+                <div class="seconds-start-stop">start</div>
 
-        <div class="timer">
-            <div class="form-field">            
-                <select class="type">
-                    <option value="0">Custom Timer</option>
-                    <option value="1">HIIT Timer</option>
-                    <option value="2" selected>Round Timer</option>
-                    <option value="3">Circuit Timer</option>
-                </select>
+                <!--<div class="seconds-prev">prev</div>
+                    <div class="seconds-next">next</div>
+                    <div class="seconds-reset">reset</div>-->
+
             </div>
-            <!--<div class="form-field">
-                Name:
-                <input class="name" type="text" value="Untitled" />
-            </div>-->
         </div>
+        <div id="builder-container" class="box grid_4 omega">
+            <div id="builder">
 
-        <div class="custom-timer">
-            <h3>Intervals</h3>
-            <div class="intervals">
-                <input type="button" value="Add Interval" />
+            </div>
+            <div id="builder-controls">
+
+                <input type="button" id="preview-button" value="Let's go" />
+                <!--<input type="button" id="create-button" value="Submit" />-->
+                <form id="form" action="/builder" method="post" style="display: none">
+                    <input id="timer-data" type="hidden" name="timer_json" />
+                </form>
             </div>
         </div>
 
-        <div class="hiit-timer">
-            <div class="form-field">
-                Number of sets:
-                <input class="sets" type="number" value="2" min="1" />
+        <div id="forms" style="display: none">
+            <div class="interval form-field">
+                <table>
+                    <tr>
+                        <td class="name"></td>
+                        <td class="table-duration">duration: <span id="freqRangeVal"></span></td>
+                        <td>
+                                    <aside>
+                                        <input class="duration" type="range" id="frequencyRange" step='5' value="20" min="0" max="100">
+                                    </aside> 
+                        </td>
+                    </tr>
+                </table>
             </div>
-        </div>
 
-        <div class="round-timer">
-            <div class="form-field">
-                Number of rounds:
-                <input class="sets" type="number" value="2" min="1"/>
+            <div class="timer">
+                <div class="form-field">
+                    <select class="type">
+                        <option value="0">Custom Timer</option>
+                        <option value="1">HIIT Timer</option>
+                        <option value="2" selected>Round Timer</option>
+                        <option value="3">Circuit Timer</option>
+                    </select>
+                </div>
+                <!--<div class="form-field">
+                        Name:
+                        <input class="name" type="text" value="Untitled" />
+                    </div>-->
             </div>
-        </div>
 
-        <div class="circuit-timer">
-            <div class="form-field">
-                Number of circuits:
-                <input class="sets" type="number" value="1" min="1" />
+            <div class="custom-timer">
+                <h3>Intervals</h3>
+                <div class="intervals">
+                    <input type="button" value="Add Interval" />
+                </div>
             </div>
-            <div class="form-field">
-                <label><input class="loop" type="checkbox" value="1" checked="yes" />Loop Exercises</label>
+
+            <div class="hiit-timer">
+                <div class="form-field">
+                    Number of sets:
+                    <input class="sets" type="number" value="2" min="1" />
+                </div>
             </div>
-            <h3>Exercises</h3>
-            <div class="exercises">
-                <input type="button" value="Add Exercise" />
+
+            <div class="round-timer">
+                <div class="form-field">
+                    Number of rounds:
+                    <input class="sets" type="number" value="2" min="1" />
+                </div>
             </div>
-            <h3>Rest</h3>
-            <div class="rest">
+
+            <div class="circuit-timer">
+                <div class="form-field">
+                    Number of circuits:
+                    <input class="sets" type="number" value="1" min="1" />
+                </div>
+                <div class="form-field">
+                    <label><input class="loop" type="checkbox" value="1" checked="yes" />Loop Exercises</label>
+                </div>
+                <h3>Exercises</h3>
+                <div class="exercises">
+                    <input type="button" value="Add Exercise" />
+                </div>
+                <h3>Rest</h3>
+                <div class="rest">
+                </div>
             </div>
-        </div>
-    </div>
+        </div></section></article>
 
 
 
-</body>
+    </body>
 </html>
