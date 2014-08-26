@@ -5,9 +5,26 @@
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="mobile-web-app-capable" content="yes" />
        
-         <link rel="stylesheet" href="css/ext/chui-android-3.6.3.css" />
-        <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+        <!--timer-->
+        <link rel="stylesheet" type="text/css" href="/css/timer.css" />
+        <link rel="stylesheet" type="text/css" href="/css/common.css" />
+
+        <script src="http://www.intervaltimer.com/static/js/lib/jquery.min.js" type="text/javascript"></script>
+        <script src="http://www.intervaltimer.com/static/js/jquery.int.js" type="text/javascript"></script>
+        <script src="http://www.intervaltimer.com/static/js/jquery.focuslost.js" type="text/javascript"></script>
+
+        <script src="/js/app/helpers.js" type="text/javascript"></script>
+        <script src="/js/app/timer.js" type="text/javascript"></script>
+        <script src="/js/builder.js" type="text/javascript"></script>
+        <script src="http://code.jquery.com/jquery-2.0.3.min.js" ></script>
+        <!--ChocolateChip UI-->
+        <link rel="stylesheet" href="css/ext/chui-ios-3.6.3.css" />
         <script src="js/ext/chui-3.6.3.js"></script>
+        
+        <script type="text/javascript">
+            Runloop.def = { "name": "First Timer", "type": 2, "soundScheme": 2, "url": "", "urlTitle": "", "numberOfSets": 5, "rounds": { "name": "", "duration": 5, "color": 0 }, "breaks": { "name": "", "duration": 4, "color": 0 } };
+        </script>
+  
         <script type="text/javascript">
             $(function () {
 
@@ -17,10 +34,10 @@
                         $.noop;
                     }
                 );
-
+                //uitklapmenu
                 $.UISlideout();
-                $.UISlideout.populate([{ header: 'Sections' }, { people: 'People' }, { tasks: 'Tasks' }, { header: 'Options' }, { settings: 'Settings' }]);
-
+                $.UISlideout.populate([ { home: 'Home'}, { oefeningen: 'Oefeningen' }, { timerarticle: 'Timer' }, { tasks: 'Tasks' }, { settings: 'Settings' }]);
+                //{ header: 'Sections' },
                 $("#saveButton").bind("singletap", function () {
                     $.UIPopup({
                         selector: "#home",
@@ -43,21 +60,18 @@
                 $('#frequencyRange').on('input', function () {
                     $('#freqRangeVal').html($(this).val());
                 });
+                
+                $.get("data/oefeningen.json", function (data) {
+                    var oefeningenTemplate = '<li class="comp"><aside><img src="[[= oefening.pic ]]" class="chathead"></aside><div>[[= oefening.description ]]<h4>Duur: [[= oefening.action ]]seconde.</h4><h4>Herhaling: [[= oefening.repeat ]]X.</h4></div></li>',
+                        parsedTmp = $.template(oefeningenTemplate, 'oefening'),
+                        oefeningenList = $("#oefeningenList"),
+                        personalOefeningenList = $("#personalOefeningenList");
 
-                $.get("data/people.json", function (data) {
-                    var peopleTemplate = '<li class="comp"><aside><img src="[[= person.pic ]]" class="chathead"></aside><div><h3>[[= person.firstName ]] [[= person.lastName ]]</h3><h4>[[= person.tel ]]</h4></div></li>',
-                        parsedTmp = $.template(peopleTemplate, 'person'),
-                        friendsList = $("#friendsList"),
-                        followersList = $("#followersList");
-
-                    data.friends.forEach(function (person) {
-                        friendsList.append(parsedTmp(person));
+                    data.oefeningen.forEach(function (oefening) {
+                        oefeningenList.append(parsedTmp(oefening)),
+                        personalOefeningenList.append(parsedTmp(oefening));
+                        
                     });
-
-                    data.followers.forEach(function (person) {
-                        followersList.append(parsedTmp(person));
-                    });
-
                 });
 
                 $.UIDeletable({
@@ -78,104 +92,263 @@
             }
         </style>
     </head>
-<body>
+    <body>
+        <nav class='current'>
+            <h1>Fysio Donders</h1>
+        </nav>
+        <article id='home' class='current'>
+            <section>
 
-    <nav class='current'>
-        <h1>Killer App</h1>
-    </nav>
-    <article id='people' class='current'>
-        <section>
+                <ul class='list'>
+                    <li class='comp'>
+                        <aside>
+                            <img src="images/anonymous.gif" class="chathead" />
+                        </aside>
+                        <div>
+                            <h3>Werner Holzapfel</h3>
+                            <h4>Eerst volgende afspraak: 09 sep 09:00</h4>
+                            <h4>Fysiotherapeut: Bjorn Geefhuizen</h4>
+                        </div>
+                    </li>
+                </ul>
 
-            <ul class='list'>
-                <li class='comp'>
-                    <aside>
-                        <img src="images/me.png" class="chathead" />
-                    </aside>
-                    <div>
-                        <h3>Me</h3>
-                        <h4>Tel: 555-597-7892</h4>
+                <div class='horizontal centered'>
+                    <div class='segmented'>
+                        <a class='button praktijkBtn selected'>Praktijk</a>
+                        <a class='button oefeningenBtn'>oefeningen</a>                    
                     </div>
-                </li>
-            </ul>
-
-            <div class='horizontal centered'>
-                <div class='segmented'>
-                    <a class='button followersBtn'>Followers</a>
-                    <a class='button friendsBtn current'>Friends</a>
                 </div>
-            </div>
-            <div id="toggle-panels">
+                <div id="toggle-panels">
+             
+                    <div>
+                        <ul class="list">
+                            <li class="comp">
+                                <div>
+                                    Hoofdpraktijk:<br>
+                                    <!--<img style="float: left; margin-right: 10px; margin-top: 4px; width: auto;" src="http://www.fysiodonders.nl/wp-content/themes/fysiodonders/images/icon-white-location.png" alt="icon">-->
+                                    Velperweg 8<br>
+                                    6824BK Arnhem<br>
+
+                                </div>
+                            </li>
+                            <li class="comp">
+                                <div>
+                                    Locatie Indoor Action:<br>
+                                    <!--<img style="float: left; margin-right: 10px; margin-top: 4px; width: auto;" src="http://www.fysiodonders.nl/wp-content/themes/fysiodonders/images/icon-white-location.png" alt="icon">-->
+                                    Boekhorstenstraat 75<br>
+                                    6828DV Arnhem
+                                </div>
+                            </li>
+
+                            <li class="comp">
+                                <div>
+                                    <!--<img style="float: left; margin-right: 10px; margin-top: 4px; width: auto;" src="http://www.fysiodonders.nl/wp-content/themes/fysiodonders/images/icon-white-tel.png" alt="icon">-->
+                                    (026) 44 33 523<br>
+                                    <!--  <img style="float: left; margin-right: 10px; margin-top: 4px; width: auto;" src="http://www.fysiodonders.nl/wp-content/themes/fysiodonders/images/icon-white-mail.png" alt="icon">-->
+                                    info@fysiodonders.nl<br>
+                                    <!--      <img style="float: left; margin-right: 10px; margin-top: 4px; width: auto;" src="http://www.fysiodonders.nl/wp-content/themes/fysiodonders/images/icon-white-www.png" alt="icon">-->
+                                    www.fysiodonders.nl
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class='list' id="personalOefeningenList"></ul>
+                    </div>
+                </div>
+
+            </section>
+        </article>
+
+        <nav class='next'>
+            <h1>Tasks</h1>
+        </nav>
+        <article id="tasks" class='next'>
+            <section>
+                <h2>Tasks</h2>
+                <ul class="list" id="taskList">
+                    <li>Weekly Shopping</li>
+                    <li>Wash Car</li>
+                    <li>Meet Friends</li>
+                </ul>
+            </section>
+        </article>
+
+        <nav class='next'>
+            <h1>Settings</h1>
+        </nav>
+        <article id="settings" class='next'>
+            <section>
+                <h2>Settings</h2>
+                <ul class="list" ui-implements="form">
+                    <li>
+                        <input autocorrect="off" autocapitalize="words" type="text" id="first_name" placeholder="First Name" required="">
+                    </li>
+                    <li>
+                        <input autocorrect="off" autocapitalize="words" type="text" id="last_name" placeholder="Last Name" required="">
+                    </li>
+                    <li>
+                        <input autocorrect="off" autocapitalize="off" type="email" id="email_address" placeholder="Email Address" required="">
+                    </li>
+                    <li>
+                        <input autocorrect="off" autocapitalize="off" type="text" id="username" placeholder="User Name" required="">
+                    </li>
+                    <li class="comp">
+                        <div>
+                            <label for="frequencyRange">Frequency: <span id="freqRangeVal"></span></label>
+                        </div>
+                        <aside>
+                            <input type="range" id="frequencyRange" step='5' value="20" min="0" max="100">
+                        </aside>
+                    </li>
+                </ul>
+                <ul class="list" ui-implements="form">
+                    <li>
+                        <p>Do you agree to the terms and conditions?</p>
+                    </li>
+                    <li id="agreeToTermsCell" class="comp">
+                        <div>
+                            <label id="agreeToTermsLabel" for="agreeToTerms">I agree.</label>
+                        </div>
+                        <aside>
+                            <span class="switch" id="agreeToTerms" role="checkbox"><em></em><input type="checkbox"></span>
+                        </aside>
+                    </li>
+                </ul>
+
+                <a class="button action" id="saveButton">Save</a>
+
+            </section>
+        </article>
+
+        <nav class='next'>
+            <h1>Timer</h1>
+        </nav>
+        <article id="timerarticle" class="next">
+            <section>          
+                <div id="timer" class="seconds-timer">
+                    <audio preload="auto" class="seconds-beep-long">
+                        <source type="audio/mp3" src="http://s3.amazonaws.com/widget.intervaltimer.com/1/sounds/beep-long.mp3"></source>
+                        <source type="audio/ogg" src="http://s3.amazonaws.com/widget.intervaltimer.com/1/sounds/beep-long.ogg"></source>
+                    </audio>
+                    <audio preload="auto" class="seconds-beep-short">
+                        <source type="audio/mp3" src="http://s3.amazonaws.com/widget.intervaltimer.com/1/sounds/beep-short.mp3"></source>
+                        <source type="audio/ogg" src="http://s3.amazonaws.com/widget.intervaltimer.com/1/sounds/beep-short.ogg"></source>
+                    </audio>
+
+                    <h4 class="seconds-interval-current">Warmup</h4>
+                    <!--<p class="seconds-interval-next">Next up: </p>-->
+                    <p class="seconds-interval-remaining">00:00</p>
+
+                    <!--<ul class="seconds-dashboard">
+                            <li class="seconds-total-elapsed"><h4>Elapsed</h4><span>00:00</span></li>
+                            <li class="seconds-interval-count"><h4>Interval</h4><span>0/0</span></li>
+                            <li class="seconds-total-remaining"><h4>Remaining</h4><span>00:00</span></li>
+                        </ul>-->
+                    <div class="seconds-controls">
+                        <div class="seconds-back"><<</div>
+                        <div class="seconds-start-stop">start</div>
+
+                        <!--<div class="seconds-prev">prev</div>
+                            <div class="seconds-next">next</div>
+                            <div class="seconds-reset">reset</div>-->
+
+                    </div>
+                </div>
+                <div id="builder-container" class="box grid_4 omega">
+                    <div id="builder">
+
+                    </div>
+                    <div id="builder-controls">
+
+                        <input type="button" id="preview-button" value="Let's go" />
+                        <!--<input type="button" id="create-button" value="Submit" />-->
+                        <form id="form" action="/builder" method="post" style="display: none">
+                            <input id="timer-data" type="hidden" name="timer_json" />
+                        </form>
+                    </div>
+                </div>
+
+                <div id="forms" style="display: none">
+                    <div class="interval form-field">
+                        <table>
+                            <tr>
+                                <!--<td><input class="name" type="text" value="default" /></td>-->
+                                <td class="name"></td>
+                                <td class="table-duration">duration:</td>
+                                <td><input class="duration" type="number" value="1" min="1" /></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="timer">
+                        <div class="form-field">
+                            <select class="type">
+                                <option value="0">Custom Timer</option>
+                                <option value="1">HIIT Timer</option>
+                                <option value="2" selected>Round Timer</option>
+                                <option value="3">Circuit Timer</option>
+                            </select>
+                        </div>
+                        <!--<div class="form-field">
+                                Name:
+                                <input class="name" type="text" value="Untitled" />
+                            </div>-->
+                    </div>
+
+                    <div class="custom-timer">
+                        <h3>Intervals</h3>
+                        <div class="intervals">
+                            <input type="button" value="Add Interval" />
+                        </div>
+                    </div>
+
+                    <div class="hiit-timer">
+                        <div class="form-field">
+                            Number of sets:
+                            <input class="sets" type="number" value="2" min="1" />
+                        </div>
+                    </div>
+
+                    <div class="round-timer">
+                        <div class="form-field">
+                            Number of rounds:
+                            <input class="sets" type="number" value="2" min="1" />
+                        </div>
+                    </div>
+
+                    <div class="circuit-timer">
+                        <div class="form-field">
+                            Number of circuits:
+                            <input class="sets" type="number" value="1" min="1" />
+                        </div>
+                        <div class="form-field">
+                            <label><input class="loop" type="checkbox" value="1" checked="yes" />Loop Exercises</label>
+                        </div>
+                        <h3>Exercises</h3>
+                        <div class="exercises">
+                            <input type="button" value="Add Exercise" />
+                        </div>
+                        <h3>Rest</h3>
+                        <div class="rest">
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </article>
+    
+        <nav class='current'>
+            <h1>Fysio Donders</h1>
+        </nav>
+        <article id='oefeningen' class='current'>
+            <section>
                 <div>
-                    <ul class='list' id="followersList"></ul>
+                    <ul class='list' id="oefeningenList"></ul>
                 </div>
-                <div>
-                    <ul class='list' id="friendsList"></ul>
-                </div>
-            </div>
 
-        </section>
-    </article>
+            </section>
+        </article>
 
-    <nav class='next'>
-        <h1>Tasks</h1>
-    </nav>
-    <article id="tasks" class='next'>
-        <section>
-            <h2>Tasks</h2>
-            <ul class="list" id="taskList">
-                <li>Weekly Shopping</li>
-                <li>Wash Car</li>
-                <li>Meet Friends</li>
-            </ul>
-        </section>
-    </article>
-
-    <nav class='next'>
-        <h1>Settings</h1>
-    </nav>
-    <article id="settings" class='next'>
-        <section>
-            <h2>Settings</h2>
-            <ul class="list" ui-implements="form">
-                <li>
-                    <input autocorrect="off" autocapitalize="words" type="text" id="first_name" placeholder="First Name" required="">
-                </li>
-                <li>
-                    <input autocorrect="off" autocapitalize="words" type="text" id="last_name" placeholder="Last Name" required="">
-                </li>
-                <li>
-                    <input autocorrect="off" autocapitalize="off" type="email" id="email_address" placeholder="Email Address" required="">
-                </li>
-                <li>
-                    <input autocorrect="off" autocapitalize="off" type="text" id="username" placeholder="User Name" required="">
-                </li>
-                <li class="comp">
-                    <div>
-                        <label for="frequencyRange">Frequency: <span id="freqRangeVal"></span></label>
-                    </div>
-                    <aside>
-                        <input type="range" id="frequencyRange" step='5' value="20" min="0" max="100">
-                    </aside>
-                </li>
-            </ul>
-            <ul class="list" ui-implements="form">
-                <li>
-                    <p>Do you agree to the terms and conditions?</p>
-                </li>
-                <li id="agreeToTermsCell" class="comp">
-                    <div>
-                        <label id="agreeToTermsLabel" for="agreeToTerms">I agree.</label>
-                    </div>
-                    <aside>
-                        <span class="switch" id="agreeToTerms" role="checkbox"><em></em><input type="checkbox"></span>
-                    </aside>
-                </li>
-            </ul>
-
-            <a class="button action" id="saveButton">Save</a>
-
-        </section>
-    </article>
-
-</body>
+    </body>
 </html>

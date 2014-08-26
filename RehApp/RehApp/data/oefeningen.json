@@ -1,0 +1,61 @@
+{
+	"oefeningen": [
+		{
+			"id": 1,
+			"description": "Tenen naar de neus optrekken en weer loslaten, knie gestrekt.",
+		 	"action": "10",
+			"break": "10",
+			"repeat": "10",
+			"pic": "images/Sports-Leg-Icon.png"
+		},
+		{
+			"id": 2,
+			"description": "Been gestrekt op het bed leggen en de knieholte in het bed drukken door de bovenbeenspieren aan te spannen",
+		 	"action": "5",
+			"break": "5",
+			"repeat": "10",
+			"pic": "images/Sports-Guru-Icon.png"
+		},
+		{
+			"id": 3,
+			"description": "Hak in het matras drukken, niet te hard drukken",
+		 	"action": "5",
+			"break": "5",
+			"repeat": "10",
+			"pic": "images/Sports-Leg-Icon.png"
+		},
+			
+		{
+			"id": 4,
+			"description": "Knie buigen en weer strekken, zover de knie het toelaat, door de hiel over de vloer naar u toe te bewegen.",
+		 	"action": "8",
+			"break": "10",
+			"repeat": "10",
+			"pic": "images/Sports-Leg-Icon.png"
+		},
+		{
+			"id": 5,
+			"description": "Bungelen met de knie ovr de rand van een tafel of stoel",
+		 	"action": "10",
+			"break": "10",
+			"repeat": "10",
+			"pic": "images/Sports-Dumbbell-Icon.png"
+		},
+		{
+			"id": 6,
+			"description": "Als de knie eenmaal goed gestrekt is, het hele been gestrekt een stukje optillen van de onderlaag.",
+		 	"action": "10",
+			"break": "10",
+			"repeat": "10",
+			"pic": "images/Sports-Leg-Icon.png"
+		},
+		{
+			"id": 7,
+			"description": "Been strekken met de voet naar buiten gedraaid, het hele been gestrekt een stukje optillen van de onderlaag",
+		 	"action": "10",
+			"break": "10",
+			"repeat": "10",
+			"pic": "images/Sports-Leg-Icon.png"
+		}
+	]
+}
